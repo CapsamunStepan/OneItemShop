@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="image/x-icon" href="{% static 'img/favicon.png' %}" rel="shortcut icon">
+    <link type="Image/x-icon" href="{% static 'img/favicon.png' %}" rel="icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Wifi Smart Camera</title>
+</head>
+<body>
+
+<div class="head">
+    <img src="{% static 'img/head.jpg' %}" alt="header">
+</div>
+
+<div class="head">
+    <img src="{% static 'img/photo_2024-03-19_20-43-12 (4).jpg' %}" alt="header">
+</div>
+
+<div class="head">
+    <img src="{% static 'img/photo_2024-03-19_20-43-12 (5)1.jpg' %}" alt="header">
+</div>
+
+<div class="head">
+    <img src="{% static 'img/photo_2024-03-19_20-43-12 (3)1.jpg' %}" alt="header">
+</div>
+
+{#space#}
+<div class="space"></div>
+
+<video src="{% static 'video/video_2024-03-28_12-37-16.mp4' %}" controls></video>
+
+{#space#}
+<div class="space"></div>
+
+<div class="price">
+    <h1>Успейте заказать по супер-цене</h1>
+    <div class="price-container">
+        <div class="old-price">
+            <div class="val">1499 лей</div>
+            <div class="sale">-20%</div>
+        </div>
+        <div class="new-price">1199 лей</div>
+    </div>
+</div>
+
+{#space#}
+<div class="space"></div>
+
+{% if sent %}
+    <h1>E-mail successfully sent</h1>
+    <p>
+        Your message was successfully sent
+    </p>
+{% else %}
+    <h1>Оставьте заявку</h1>
+    <h3>Наши менеджеры скоро свяжутся с вами для консультации</h3>
+    <div class="form-container">
+        <div class="form">
+            <form method="post">
+                <div class="form-row">
+                    <label for="id_name">Имя:</label>
+                </div>
+                <div class="form-row">
+                    {{ form.name }}
+                </div>
+                <div class="form-row">
+                    <label for="id_phone">Номер телефона:</label>
+                </div>
+                <div class="form-row">
+                    {{ form.phone }}
+                </div>
+                {% csrf_token %}
+                <div class="button-container">
+                    <button type="submit">Заказать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}
+
+
+<footer>
+    
+</footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
